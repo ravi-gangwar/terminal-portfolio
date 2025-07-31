@@ -66,10 +66,10 @@ npm start
 
 ## 🏗️ Tech Stack
 
-- **Framework**: Next.js 14 with App Router
+- **Framework**: Next.js 15 with App Router
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Terminal**: xterm.js with FitAddon and WebLinksAddon
+- **Terminal**: Custom HTML/CSS terminal interface
 - **Deployment**: Vercel-ready
 
 ## 📱 Usage

@@ -13,8 +13,8 @@ const TerminalComponent: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
-      <div className="w-full max-w-4xl h-[80vh] terminal-container bg-black border border-green-500 rounded-lg p-4">
-        <div className="text-green-500 font-mono text-sm h-full overflow-y-auto">
+      <div className="w-full max-w-4xl h-[80vh] terminal-container">
+        <div className="text-green-500 font-mono text-sm h-full overflow-y-auto p-4">
           <TerminalOutput output={state.output} />
           <TerminalInput
             input={state.input}

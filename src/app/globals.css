@@ -1,13 +1,12 @@
-@import '@xterm/xterm/css/xterm.css';
 @import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
 
 :root {
   --primary-color: #00d184;
+  --error-color: #ff4757;
   --bg-color: #0a0a0a;
   --text-color: #ffffff;
   --cursor-color: #00d184;
-  --selection-color: rgba(0, 209, 132, 0.3);
 }
 
 * {
@@ -46,21 +45,10 @@ a {
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 209, 132, 0.1);
   overflow: hidden;
+  position: relative;
 }
 
-.xterm {
-  padding: 16px;
-  font-size: 14px;
-  line-height: 1.4;
-}
 
-.xterm-viewport {
-  background-color: transparent !important;
-}
-
-.xterm-screen {
-  background-color: transparent !important;
-}
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -122,6 +110,63 @@ a {
 .terminal-link:hover {
   color: #00b874;
   text-shadow: 0 0 8px rgba(0, 209, 132, 0.5);
+}
+
+/* Colorful text classes */
+.text-primary { color: var(--primary-color); }
+.text-error { color: var(--error-color); }
+.text-white { color: var(--text-color); }
+
+/* Animated cursor */
+.terminal-cursor {
+  background: var(--primary-color);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 209, 132, 0.5);
+}
+
+/* Colorful input styling */
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  caret-color: var(--primary-color);
+}
+
+.terminal-input:focus {
+  box-shadow: none;
+}
+
+/* Prompt styling */
+.terminal-prompt {
+  color: var(--primary-color);
+  text-shadow: 0 0 5px rgba(0, 209, 132, 0.3);
+  font-weight: bold;
+}
+
+/* Command history styling */
+.command-history {
+  color: var(--primary-color);
+  opacity: 0.8;
+}
+
+/* Error styling */
+.command-error {
+  color: var(--error-color);
+  text-shadow: 0 0 5px rgba(255, 71, 87, 0.3);
+}
+
+/* Success styling */
+.command-success {
+  color: var(--primary-color);
+  text-shadow: 0 0 5px rgba(0, 209, 132, 0.3);
+}
+
+/* Info styling */
+.command-info {
+  color: var(--primary-color);
+  text-shadow: 0 0 5px rgba(0, 209, 132, 0.3);
 }
 
 /* Responsive design */

@@ -15,15 +15,19 @@ export const TerminalInput: React.FC<TerminalInputProps> = ({
 }) => {
   return (
     <div className="flex items-center">
-      <span className="text-green-500 mr-2">$</span>
+      <span className="terminal-prompt mr-2">$</span>
       <input
         ref={inputRef}
         type="text"
         value={input}
         onChange={(e) => onInputChange(e.target.value)}
         onKeyPress={onKeyPress}
-        className="flex-1 bg-transparent text-white outline-none font-mono"
+        className="terminal-input flex-1"
         autoFocus
+        style={{
+          caretColor: "#00d184",
+          textShadow: "0 0 3px rgba(0, 209, 132, 0.3)",
+        }}
       />
     </div>
   );
