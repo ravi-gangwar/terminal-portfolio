@@ -1,0 +1,1 @@
+export { PORTFOLIO_DATA, WELCOME_MESSAGE } from './portfolio'; 

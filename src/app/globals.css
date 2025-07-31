@@ -1,26 +1,133 @@
-@import "tailwindcss";
+@import '@xterm/xterm/css/xterm.css';
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #00d184;
+  --bg-color: #0a0a0a;
+  --text-color: #ffffff;
+  --cursor-color: #00d184;
+  --selection-color: rgba(0, 209, 132, 0.3);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Terminal specific styles */
+.terminal-container {
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 209, 132, 0.1);
+  overflow: hidden;
+}
+
+.xterm {
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.xterm-viewport {
+  background-color: transparent !important;
+}
+
+.xterm-screen {
+  background-color: transparent !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00b874;
+}
+
+/* Typing animation */
+.typing-animation {
+  overflow: hidden;
+  border-right: 2px solid var(--primary-color);
+  white-space: nowrap;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--primary-color); }
+}
+
+/* Command output styling */
+.command-output {
+  margin: 8px 0;
+  padding: 8px 0;
+  border-left: 2px solid var(--primary-color);
+  padding-left: 12px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Link styling */
+.terminal-link {
+  color: var(--primary-color);
+  text-decoration: underline;
+  transition: all 0.2s ease;
+}
+
+.terminal-link:hover {
+  color: #00b874;
+  text-shadow: 0 0 8px rgba(0, 209, 132, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .xterm {
+    font-size: 12px;
+    padding: 12px;
+  }
 }
