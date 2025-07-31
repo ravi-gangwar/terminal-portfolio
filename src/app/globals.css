@@ -48,24 +48,9 @@ a {
   position: relative;
 }
 
-
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-color);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #00b874;
+  width: 0px;
 }
 
 /* Typing animation */
@@ -129,7 +114,7 @@ a {
   background: transparent;
   border: none;
   outline: none;
-  color: var(--text-color);
+  color: var(--primary-color);
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   caret-color: var(--primary-color);
 }
