@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 interface TerminalOutputProps {
   output: string[];
 }
 
 export const TerminalOutput: React.FC<TerminalOutputProps> = ({ output }) => {
+  const outputRef = useRef<HTMLDivElement>(null);
+
   const getOutputClassName = (line: string) => {
     // Command lines (starting with $)
     if (line.startsWith("$ ")) {
@@ -44,6 +46,12 @@ export const TerminalOutput: React.FC<TerminalOutputProps> = ({ output }) => {
     // Default styling
     return "text-white";
   };
+
+  useEffect(() => {
+    if (outputRef.current) {
+      outputRef.current.scrollTop = outputRef.current.scrollHeight;
+    }
+  }, [output]);
 
   return (
     <>
